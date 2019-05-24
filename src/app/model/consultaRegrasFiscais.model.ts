@@ -3,7 +3,4 @@ export class ConsultaRegrasFiscais{
     public pais: string;
     public ufDestino: string;
     public paisDestino: string; 
-
-
-
 }

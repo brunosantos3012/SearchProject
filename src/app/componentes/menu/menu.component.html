@@ -1,3 +1,6 @@
-<p>
-  menu works!
-</p>
+<div class="input-group mb-3" id="busca">
+  <input type="text" placeholder="Buscar produtos" [(ngModel)]="nomePesquisa" class="form-control"
+    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  <button type="button" (click)="BuscaProdutos()" class="btn btn-primary">Buscar</button>
+</div>
+<app-descricaoproduto [recebeListObject]="listObject"></app-descricaoproduto>

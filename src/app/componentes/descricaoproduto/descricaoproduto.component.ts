@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-descricaoproduto',
   templateUrl: './descricaoproduto.component.html',
-  styleUrls: ['./descricaoproduto.component.css']
+  styleUrls: ['./descricaoproduto.component.css'],
 })
 export class DescricaoprodutoComponent implements OnInit {
+
+  @Input() recebeListObject;
 
   constructor() { }
 

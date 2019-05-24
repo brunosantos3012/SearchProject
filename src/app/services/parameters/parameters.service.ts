@@ -11,4 +11,5 @@ export class ParametersService {
   getValueByPropertiesJson(value: string): any {
     return properties[value];
   }
+    
 }

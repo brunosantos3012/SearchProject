@@ -1,5 +1,5 @@
 import { Itens } from './itens.model';
-import { ConsultaRegrasFiscais } from './consultaregrasfiscais.model';
+import { ConsultaRegrasFiscais } from './consultaRegrasFiscais.model';
 
 export class Detalhe{
     public filial: string;

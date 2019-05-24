@@ -1,3 +1,20 @@
-<p>
-  descricaoproduto works!
-</p>
+<div *ngIf="recebeListObject">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Estoque</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">EAN</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of recebeListObject">
+        <td>{{item.codigoItem}}</td>
+        <td>{{item.nomenclaturaVarejo}}</td>
+        <td>{{item.exclusivoPanvel}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

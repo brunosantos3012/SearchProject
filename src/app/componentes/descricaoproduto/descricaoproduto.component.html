@@ -4,16 +4,20 @@
       <tr>
         <th scope="col">Código</th>
         <th scope="col">Estoque</th>
-        <th scope="col">Preço</th>
+        <th scope="col">Preços</th>
         <th scope="col">Descrição</th>
         <th scope="col">EAN</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of recebeListObject">
-        <td>{{item.codigoItem}}</td>
-        <td>{{item.nomenclaturaVarejo}}</td>
-        <td>{{item.exclusivoPanvel}}</td>
+      <tr *ngFor="let codigo of recebeListObject">
+        <td>{{codigo.codigoItem}}</td>
+      </tr>
+      <tr *ngFor="let estoque of recebeEstoqueObject">
+        <td>{{estoque.estoqueLoja}}</td>
+      </tr>
+      <tr *ngFor="let preco of recebePrecoObject">
+        <td>{{preco.preco.precoVenda}}</td>
       </tr>
     </tbody>
   </table>

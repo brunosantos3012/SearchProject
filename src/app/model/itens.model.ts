@@ -1,4 +1,4 @@
 export class Itens{
     public codigo: number;
-    public quantidade: number;
+    public quantidade = 10;
 }

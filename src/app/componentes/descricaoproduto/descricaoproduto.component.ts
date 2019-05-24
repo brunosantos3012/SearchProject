@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DescricaoprodutoComponent implements OnInit {
 
   @Input() recebeListObject;
+  @Input() recebeEstoqueObject;
+  @Input() recebePrecoObject;
 
   constructor() { }
 

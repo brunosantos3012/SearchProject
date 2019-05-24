@@ -1,6 +1,6 @@
 export class ConsultaRegrasFiscais{
-    public uf: string;
-    public pais: string;
-    public ufDestino: string;
-    public paisDestino: string; 
+    public uf = "RS";
+    public pais = "BR";
+    public ufDestino = "RS";
+    public paisDestino = "BR"; 
 }

@@ -1,0 +1,6 @@
+{
+    "autocomplete_url": "http://tst.grupodimedservices.com.br/item/v3/itens/base/autocomplete?nome=",
+    "detalhe_url": "http://tst.grupodimedservices.com.br/mostruario/v3/itens/detalhe",
+    "consulta_preco_url": "http://tst.grupodimedservices.com.br/mostruario/v3/itens/precos?item=896760&filial=101&perfil=1",
+    "estoque_url": "http://tst.grupodimedservices.com.br/filial/v1/filiais/101/estoque?itens=484160"
+}

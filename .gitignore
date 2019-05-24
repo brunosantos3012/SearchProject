@@ -18,7 +18,6 @@ speed-measure-plugin.json
 /.idea
 .project
 .classpath
-properties.json
 .c9/
 *.launch
 .settings/

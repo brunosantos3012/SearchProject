@@ -7,6 +7,7 @@ import { _keyValueDiffersFactory } from '@angular/core/src/application_module';
 import { Preco } from 'src/app/model/preco.model';
 import { DetalhePost } from 'src/app/model/detalhePost.model';
 import { Itens } from 'src/app/model/itens.model';
+import { DetalheResponse } from 'src/app/model/detalheResponse.model';
 
 @Component({
   selector: 'app-menu',
@@ -19,16 +20,13 @@ export class MenuComponent implements OnInit {
   public estoqueObject: Array<Estoque>;
   public precoObject: Array<Preco>;
   public detalheObject: Array<DetalhePost>;
+  public responseDetalhe: Array<DetalheResponse> = new Array<DetalheResponse>();
   nomePesquisa: string;
   codigoEstoque: number
 
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-  }
-
-  public getService() {
-    return this.menuService;
   }
 
   BuscaProdutos() {
@@ -72,8 +70,20 @@ export class MenuComponent implements OnInit {
     });
     this.menuService.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {
       this.detalheObject = response.itens;
-      console.log(this.detalheObject);
+      this.responseDetalhe = response.itens;
     });
   }
+
+  teste() {
+    this.responseDetalhe.forEach((item, index) => {
+      const estoqueFiltrado = this.estoqueObject.find((filtroEstoque) =>
+        filtroEstoque.codigoItem == item.codigoItem);
+      const precoFiltrado = this.precoObject.find((filtroPreco) =>
+        filtroPreco.codigoItem == item.codigoItem);
+      item.estoque = estoqueFiltrado.estoqueLoja;
+      item.preco = precoFiltrado.preco;
+    });
+  }
+
 
 }

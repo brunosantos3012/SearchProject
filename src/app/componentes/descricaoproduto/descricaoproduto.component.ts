@@ -7,10 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DescricaoprodutoComponent implements OnInit {
 
-  @Input() recebeListObject;
-  @Input() recebeEstoqueObject;
-  @Input() recebePrecoObject;
-  @Input() recebeDetalheObject;
+  @Input() recebeResponseDetalhe;
  
   constructor() { }
 

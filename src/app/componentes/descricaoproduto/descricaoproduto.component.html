@@ -1,4 +1,4 @@
-<div *ngIf="recebeListObject">
+<div>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -10,20 +10,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let codigo of recebeListObject">
-        <td>{{codigo.codigoItem}}</td>
-      </tr>
-      <tr *ngFor="let estoque of recebeEstoqueObject">
-        <td>{{estoque.estoqueLoja}}</td>
-      </tr>
-      <tr *ngFor="let preco of recebePrecoObject">
-        <td>{{preco.preco.precoFidelidade55Mais}}</td>
-        <td>{{preco.preco.precoPor}}</td>
-        <td>{{preco.preco.precoVenda}}</td>
-      </tr>
-      <tr *ngFor="let detalhe of recebeDetalheObject">
-        <td>{{detalhe.descricaoMarcaPai}}</td>
-        <td>{{detalhe.ean}}</td>
+      <tr *ngFor="let item of recebeResponseDetalhe">
+        <td>{{item.codigo}}</td>
+        <td>{{item.estoque}}</td>
+        <td>{{item.preco?.precoFidelidade55Mais}} | {{item.preco?.precoPor}} | {{item.preco?.precoVenda}}</td>
+        <td>{{item.descricaoMarcaPai}}</td>
+        <td>{{item.ean}}</td>
       </tr>
     </tbody>
   </table>

@@ -1,6 +1,7 @@
-export class Preco{
-    public precoVenda: number;
-    public precoPor: number;
-    public precoFidelidade: number;
-    public precoFidelidade55Mais: number;
+import { Precos } from './precos.model';
+
+export class Preco {
+    public codigoItem: number;
+    public preco: Precos;
+
 }

@@ -1,10 +1,11 @@
 import { Preco } from './preco.model';
 import { Categoria } from './categoria.model';
+import { Precos } from './precos.model';
 
 export class DetalheResponse {
     public codigoItem: number;
-    public estoque: number;
-    public preco: Preco;
+    public estoque?: number;
+    public preco?: Precos;
     public descricaoPai: string;
     public ean: number;
     public promocaoAssinatura: string;

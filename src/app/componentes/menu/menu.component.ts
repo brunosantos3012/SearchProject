@@ -5,7 +5,7 @@ import { Estoque } from 'src/app/model/estoque.model';
 import { HttpParams } from '@angular/common/http';
 import { _keyValueDiffersFactory } from '@angular/core/src/application_module';
 import { Preco } from 'src/app/model/preco.model';
-import { Detalhe } from 'src/app/model/detalhe.model';
+import { DetalhePost } from 'src/app/model/detalhePost.model';
 import { Itens } from 'src/app/model/itens.model';
 
 @Component({
@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
   public listObject: Array<BuscaItem>;
   public estoqueObject: Array<Estoque>;
   public precoObject: Array<Preco>;
-  public detalheObject: Array<Detalhe>;
+  public detalheObject: Array<DetalhePost>;
   nomePesquisa: string;
   codigoEstoque: number
 
@@ -64,15 +64,15 @@ export class MenuComponent implements OnInit {
   }
 
   BuscaDetalhe() {
-    const responseDetalhe: Detalhe = new Detalhe();
+    const responseDetalhe: DetalhePost = new DetalhePost();
     this.listObject.map(item => {
       let itens: Itens = new Itens();
       itens.codigo = item.codigoItem
       responseDetalhe.itens.push(itens)
     });
     this.menuService.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {
-      this.detalheObject = response;
-      console.log("aqui", this.detalheObject)
+      this.detalheObject = response.itens;
+      console.log(this.detalheObject);
     });
   }
 

@@ -10,7 +10,8 @@ export class DescricaoprodutoComponent implements OnInit {
   @Input() recebeListObject;
   @Input() recebeEstoqueObject;
   @Input() recebePrecoObject;
-
+  @Input() recebeDetalheObject;
+ 
   constructor() { }
 
   ngOnInit() {

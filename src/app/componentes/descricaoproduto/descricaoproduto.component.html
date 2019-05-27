@@ -1,5 +1,5 @@
 <div *ngIf="recebeListObject">
-  <table class="table">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Código</th>
@@ -17,7 +17,13 @@
         <td>{{estoque.estoqueLoja}}</td>
       </tr>
       <tr *ngFor="let preco of recebePrecoObject">
+        <td>{{preco.preco.precoFidelidade55Mais}}</td>
+        <td>{{preco.preco.precoPor}}</td>
         <td>{{preco.preco.precoVenda}}</td>
+      </tr>
+      <tr *ngFor="let detalhe of recebeDetalheObject">
+        <td>{{detalhe.descricaoMarcaPai}}</td>
+        <td>{{detalhe.ean}}</td>
       </tr>
     </tbody>
   </table>

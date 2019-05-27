@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ParametersService } from '../parameters/parameters.service';
 import { Constantes } from 'src/app/contantes/constantes';
-import { Detalhe } from 'src/app/model/detalhe.model';
+import { DetalhePost } from 'src/app/model/detalhePost.model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class MenuService {
     return this.http.get(`${this.parameter.getValueByPropertiesJson(Constantes.consulta_preco_url_api)}`, options);
   }
 
-  BuscaDetalhe(detalhe: Detalhe): Observable<any> {
+  BuscaDetalhe(detalhe: DetalhePost): Observable<any> {
     return this.http.post(`${this.parameter.getValueByPropertiesJson(Constantes.detalhe_url_api)}`, detalhe);
   }
 

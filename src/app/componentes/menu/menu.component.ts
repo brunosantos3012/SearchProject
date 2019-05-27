@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/services/menu/menu.service';
 import { BuscaItem } from 'src/app/model/buscaItem.model';
 import { Estoque } from 'src/app/model/estoque.model';
@@ -19,7 +19,6 @@ export class MenuComponent implements OnInit {
   public estoqueObject: Array<Estoque>;
   public precoObject: Array<Preco>;
   public detalheObject: Array<Detalhe>;
-  public detalhes: Array<Detalhe>;
   nomePesquisa: string;
   codigoEstoque: number
 
@@ -65,16 +64,16 @@ export class MenuComponent implements OnInit {
   }
 
   BuscaDetalhe() {
-    let detalhes: Detalhe = new Detalhe();
-
-    for (let i = 0; i < this.listObject.length; i++) {
-      // let detalhe: Itens = new Itens();
-      // this.detalhes.itens.push(detalhe);
-    }
-    this.menuService.BuscaEstoque(this.detalhes).subscribe((response: any) => {
+    const responseDetalhe: Detalhe = new Detalhe();
+    this.listObject.map(item => {
+      let itens: Itens = new Itens();
+      itens.codigo = item.codigoItem
+      responseDetalhe.itens.push(itens)
+    });
+    this.menuService.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {
       this.detalheObject = response;
       console.log("aqui", this.detalheObject)
-    })
+    });
   }
 
 }

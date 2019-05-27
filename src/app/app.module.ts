@@ -8,6 +8,7 @@ import { DescricaoprodutoComponent } from './componentes/descricaoproduto/descri
 import { DetalhesprodutoComponent } from './componentes/detalhesproduto/detalhesproduto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { Interceptor } from './modules/interceptor.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Interceptor
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of recebeResponseDetalhe">
+      <tr *ngFor="let item of recebeResponseDetalhe" (click)="open(item)">
         <td>{{item.codigo}}</td>
         <td>{{item.estoque}}</td>
         <td>{{item.preco?.precoFidelidade55Mais}} | {{item.preco?.precoPor}} | {{item.preco?.precoVenda}}</td>

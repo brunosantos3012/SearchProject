@@ -1,9 +1,10 @@
 import { Preco } from './preco.model';
 import { Categoria } from './categoria.model';
 import { Precos } from './precos.model';
+import { Image } from './image.model';
 
 export class DetalheResponse {
-    public codigoItem: number;
+    public codigo: number;
     public estoque?: number;
     public preco?: Precos;
     public descricaoPai: string;
@@ -16,4 +17,5 @@ export class DetalheResponse {
     public situacaoItem: string;
     public advertencias: Array<string>;
     public categorias: Array<Categoria>;
+    public dadosImagens: Array<Image>
 }

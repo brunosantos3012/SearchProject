@@ -9,6 +9,7 @@ import { DetalhesprodutoComponent } from './componentes/detalhesproduto/detalhes
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Interceptor } from './modules/interceptor.module';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,13 @@ import { Interceptor } from './modules/interceptor.module';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Interceptor
+    Interceptor,
+    NgbModule.forRoot()
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [NgbActiveModal],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DetalhesprodutoComponent
+  ]
 })
 export class AppModule { }

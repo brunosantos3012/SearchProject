@@ -33,31 +33,7 @@ export class MenuComponent implements OnInit {
     this.listObject = new Array();
     this.menuService.SearchAll(this.nomePesquisa).subscribe((response: any) => {
       this.listObject = response;
-      this.BuscaEstoque();
-      this.BuscaPreco();
       this.BuscaDetalhe();
-    });
-  }
-
-  BuscaEstoque() {
-    var parametros = new HttpParams();
-    for (let i = 0; i < this.listObject.length; i++) {
-      parametros = parametros.append('itens', this.listObject[i].codigoItem.toString());
-    }
-    const options = { params: parametros }
-    this.menuService.BuscaEstoque(options).subscribe((response: any) => {
-      this.estoqueObject = response;
-    });
-  }
-
-  BuscaPreco() {
-    var parametros = new HttpParams();
-    for (let i = 0; i < this.listObject.length; i++) {
-      parametros = parametros.append('item', this.listObject[i].codigoItem.toString());
-    }
-    const options = { params: parametros }
-    this.menuService.BuscaPreco(options).subscribe((response: any) => {
-      this.precoObject = response;
     });
   }
 
@@ -69,17 +45,41 @@ export class MenuComponent implements OnInit {
       responseDetalhe.itens.push(itens)
     });
     this.menuService.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {
-      this.detalheObject = response.itens;
       this.responseDetalhe = response.itens;
+      this.BuscaEstoque();
+      this.BuscaPreco();
     });
   }
 
-  teste() {
+  BuscaEstoque() {
+    var parametros = new HttpParams();
+    for (let i = 0; i < this.responseDetalhe.length; i++) {
+      parametros = parametros.append('itens', this.responseDetalhe[i].codigo.toString());
+    }
+    const options = { params: parametros }
+    this.menuService.BuscaEstoque(options).subscribe((response: any) => {
+      this.estoqueObject = response;
+    });
+  }
+
+  BuscaPreco() {
+    var parametros = new HttpParams();
+    for (let i = 0; i < this.responseDetalhe.length; i++) {
+      parametros = parametros.append('item', this.responseDetalhe[i].codigo.toString());
+    }
+    const options = { params: parametros }
+    this.menuService.BuscaPreco(options).subscribe((response: any) => {
+      this.precoObject = response;
+      this.AtualizandoLista();
+    });
+  }
+
+  AtualizandoLista() {
     this.responseDetalhe.forEach((item, index) => {
       const estoqueFiltrado = this.estoqueObject.find((filtroEstoque) =>
-        filtroEstoque.codigoItem == item.codigoItem);
+        filtroEstoque.codigoItem == item.codigo);
       const precoFiltrado = this.precoObject.find((filtroPreco) =>
-        filtroPreco.codigoItem == item.codigoItem);
+        filtroPreco.codigoItem == item.codigo);
       item.estoque = estoqueFiltrado.estoqueLoja;
       item.preco = precoFiltrado.preco;
     });

@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import {NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { DetalhesprodutoComponent } from '../detalhesproduto/detalhesproduto.component';
+import { DetalheResponse } from 'src/app/model/detalheResponse.model';
+
+
 @Component({
   selector: 'app-descricaoproduto',
   templateUrl: './descricaoproduto.component.html',
@@ -9,9 +14,14 @@ export class DescricaoprodutoComponent implements OnInit {
 
   @Input() recebeResponseDetalhe;
  
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
   }
 
+  open(item: DetalheResponse) {
+    const modalRef = this.modalService.open(DetalhesprodutoComponent);
+    modalRef.componentInstance.item = item;
+    console.log(item)
+  }
 }

@@ -1,7 +1,13 @@
-<div class="input-group mb-3" id="busca">
-  <input type="text" placeholder="Buscar produtos" [(ngModel)]="nomePesquisa" class="form-control"
-    aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-  <button type="button" (click)="BuscaProdutos()" class="btn btn-primary">Buscar</button>
-  <button type="button" (click)="teste()" class="btn btn-primary">teste</button>
-</div>
-<app-descricaoproduto [recebeResponseDetalhe]="responseDetalhe" ></app-descricaoproduto>
+<nav class="navbar navbar-light" style="background-color:	#003F84;">
+  <a class="navbar-brand page-scroll" href="#">
+    <img src="assets/images/grupodimed.png" class="img-fluid" alt="">
+  </a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="text" placeholder="Buscar produtos" aria-label="Search"
+      (keyup.enter)="BuscaProdutos()" [(ngModel)]="nomePesquisa" name="nomePesquisa">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="BuscaProdutos()"
+      class="btn btn-primary">Pesquisar</button>
+  </form>
+</nav>
+
+<app-descricaoproduto [recebeResponseDetalhe]="responseDetalhe"></app-descricaoproduto>

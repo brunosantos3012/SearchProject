@@ -8,7 +8,9 @@
 <div class="modal-body">
   <p>(Código: {{item.codigo}})</p>
   <p>Disponivel: {{item.estoque}}</p>
-  <p>R${{item.preco.precoVenda}}</p>
+  <p>Preço Por: R${{item.preco.precoPor}}</p>
+  <p>Preço Venda: R${{item.preco.precoVenda}}</p>
+  <p>Preço 55Mais: R${{item.preco.precoFidelidade55Mais}}</p>
   <p>Descrição: {{item.descricaoMarcaPai}}</p>
   <p>EAN: {{item.ean}}</p>
   <div *ngIf="item.promocaoAssinatura == false">

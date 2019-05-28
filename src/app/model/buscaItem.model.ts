@@ -1,4 +1,4 @@
-export class BuscaItem{
+export class BuscaItem {
     public codigoItem: number;
     public nomenclaturaVarejo: string;
     public nomeDetalhado: string;

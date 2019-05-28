@@ -1,4 +1,4 @@
-export class Estoque{
+export class Estoque {
     public estoqueLoja: number;
     public estoqueApoio: number;
     public reservaVirtual: number;

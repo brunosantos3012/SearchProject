@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import {NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DetalhesprodutoComponent } from '../detalhesproduto/detalhesproduto.component';
 import { DetalheResponse } from 'src/app/model/detalheResponse.model';
 
@@ -13,13 +13,13 @@ import { DetalheResponse } from 'src/app/model/detalheResponse.model';
 export class DescricaoprodutoComponent implements OnInit {
 
   @Input() recebeResponseDetalhe;
- 
+
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
   }
 
-  open(item: DetalheResponse) {
+  OpenModal(item: DetalheResponse) {
     const modalRef = this.modalService.open(DetalhesprodutoComponent);
     modalRef.componentInstance.item = item;
     console.log(item)

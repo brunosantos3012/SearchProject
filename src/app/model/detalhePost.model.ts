@@ -1,7 +1,7 @@
 import { Itens } from './itens.model';
 import { ConsultaRegrasFiscais } from './consultaRegrasFiscais.model';
 
-export class DetalhePost{
+export class DetalhePost {
     public codigo: number;
     public filial = "101";
     public perfil = 1;

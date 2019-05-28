@@ -6,11 +6,11 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HTTP_INTERCEPTORS
 
 export class HttpsRequestInterceptor implements HttpInterceptor {
   intercept(
-    req: HttpRequest<any>,
+    request: HttpRequest<any>,
     next: HttpHandler,
   ): Observable<HttpEvent<any>> {
-    const dupReq = req.clone({
-      headers: req.headers.set('app-token', 'mCl6SnTQp6eT'),
+    const dupReq = request.clone({
+      headers: request.headers.set('app-token', 'mCl6SnTQp6eT'),
     });
     return next.handle(dupReq);
   }
@@ -27,4 +27,4 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
 })
 
 
-export class Interceptor {}
+export class Interceptor { }

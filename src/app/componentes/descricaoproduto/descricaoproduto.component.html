@@ -1,8 +1,9 @@
-<div>
+<div *ngIf="recebeResponseDetalhe"> 
   <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">Código</th>
+        <th scope="col">Nome</th>
         <th scope="col">Estoque</th>
         <th scope="col">Preços</th>
         <th scope="col">Descrição</th>
@@ -10,8 +11,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of recebeResponseDetalhe" (click)="open(item)">
+      <tr *ngFor="let item of recebeResponseDetalhe" (click)="OpenModal(item)">
         <td>{{item.codigo}}</td>
+        <td>{{item.nomenclatura}}</td>
         <td>{{item.estoque}}</td>
         <td>{{item.preco?.precoFidelidade55Mais}} | {{item.preco?.precoPor}} | {{item.preco?.precoVenda}}</td>
         <td>{{item.descricaoMarcaPai}}</td>

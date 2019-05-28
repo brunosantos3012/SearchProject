@@ -8,11 +8,11 @@ import { DetalhePost } from 'src/app/model/detalhePost.model';
 @Injectable({
   providedIn: 'root'
 })
-export class MenuService {
+export class SearchAllService {
 
   constructor(protected http: HttpClient, protected parameter: ParametersService) { }
 
-  SearchAll(name: string): Observable<any> {
+  BuscaNome(name: string): Observable<any> {
     return this.http.get(`${this.parameter.getValueByPropertiesJson(Constantes.autocomplete_url_api)}${name}&codigoFilial=101&maxResult=200&ordenarRentabilidade=true&ordenarPreco=false`);
   }
 

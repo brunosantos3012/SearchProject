@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from 'src/app/services/menu/menu.service';
 import { BuscaItem } from 'src/app/model/buscaItem.model';
 import { Estoque } from 'src/app/model/estoque.model';
 import { HttpParams } from '@angular/common/http';
@@ -8,6 +7,7 @@ import { Preco } from 'src/app/model/preco.model';
 import { DetalhePost } from 'src/app/model/detalhePost.model';
 import { Itens } from 'src/app/model/itens.model';
 import { DetalheResponse } from 'src/app/model/detalheResponse.model';
+import { SearchAllService } from 'src/app/services/searchAll/searchall.service';
 
 @Component({
   selector: 'app-menu',
@@ -24,14 +24,14 @@ export class MenuComponent implements OnInit {
   nomePesquisa: string;
   codigoEstoque: number
 
-  constructor(private menuService: MenuService) { }
+  constructor(private service: SearchAllService) { }
 
   ngOnInit() {
   }
 
   BuscaProdutos() {
     this.listObject = new Array();
-    this.menuService.SearchAll(this.nomePesquisa).subscribe((response: any) => {
+    this.service.BuscaNome(this.nomePesquisa).subscribe((response: any) => {
       this.listObject = response;
       this.BuscaDetalhe();
     });
@@ -44,7 +44,7 @@ export class MenuComponent implements OnInit {
       itens.codigo = item.codigoItem
       responseDetalhe.itens.push(itens)
     });
-    this.menuService.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {
+    this.service.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {
       this.responseDetalhe = response.itens;
       this.BuscaEstoque();
       this.BuscaPreco();
@@ -57,7 +57,7 @@ export class MenuComponent implements OnInit {
       parametros = parametros.append('itens', this.responseDetalhe[i].codigo.toString());
     }
     const options = { params: parametros }
-    this.menuService.BuscaEstoque(options).subscribe((response: any) => {
+    this.service.BuscaEstoque(options).subscribe((response: any) => {
       this.estoqueObject = response;
     });
   }
@@ -68,14 +68,14 @@ export class MenuComponent implements OnInit {
       parametros = parametros.append('item', this.responseDetalhe[i].codigo.toString());
     }
     const options = { params: parametros }
-    this.menuService.BuscaPreco(options).subscribe((response: any) => {
+    this.service.BuscaPreco(options).subscribe((response: any) => {
       this.precoObject = response;
       this.AtualizandoLista();
     });
   }
 
   AtualizandoLista() {
-    this.responseDetalhe.forEach((item, index) => {
+    this.responseDetalhe.forEach((item) => {
       const estoqueFiltrado = this.estoqueObject.find((filtroEstoque) =>
         filtroEstoque.codigoItem == item.codigo);
       const precoFiltrado = this.precoObject.find((filtroPreco) =>

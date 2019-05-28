@@ -22,6 +22,5 @@ export class DescricaoprodutoComponent implements OnInit {
   OpenModal(item: DetalheResponse) {
     const modalRef = this.modalService.open(DetalhesprodutoComponent);
     modalRef.componentInstance.item = item;
-    console.log(item)
   }
 }

@@ -13,19 +13,20 @@ export class SearchAllService {
   constructor(protected http: HttpClient, protected parameter: ParametersService) { }
 
   BuscaNome(name: string): Observable<any> {
-    return this.http.get(`${this.parameter.getValueByPropertiesJson(Constantes.autocomplete_url_api)}${name}&codigoFilial=101&maxResult=200&ordenarRentabilidade=true&ordenarPreco=false`);
+// tslint:disable-next-line: max-line-length
+    return this.http.get(`${this.parameter.getValueByPropertiesJson(Constantes.AUTOCOMPLETE_URL_API)}${name}&codigoFilial=101&maxResult=200&ordenarRentabilidade=true&ordenarPreco=false`);
   }
 
   BuscaEstoque(options: any): Observable<any> {
-    return this.http.get(`${this.parameter.getValueByPropertiesJson(Constantes.estoque_url_api)}`, options);
+    return this.http.get(`${this.parameter.getValueByPropertiesJson(Constantes.ESTOQUE_URL_API)}`, options);
   }
 
   BuscaPreco(options: any): Observable<any> {
-    return this.http.get(`${this.parameter.getValueByPropertiesJson(Constantes.consulta_preco_url_api)}`, options);
+    return this.http.get(`${this.parameter.getValueByPropertiesJson(Constantes.CONSULTA_PRECO_API)}`, options);
   }
 
   BuscaDetalhe(detalhe: DetalhePost): Observable<any> {
-    return this.http.post(`${this.parameter.getValueByPropertiesJson(Constantes.detalhe_url_api)}`, detalhe);
+    return this.http.post(`${this.parameter.getValueByPropertiesJson(Constantes.DETALHE_URL_API)}`, detalhe);
   }
 
 }

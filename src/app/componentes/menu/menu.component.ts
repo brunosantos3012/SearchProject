@@ -21,17 +21,16 @@ export class MenuComponent implements OnInit {
   public precoObject: Array<Preco>;
   public detalheObject: Array<DetalhePost>;
   public responseDetalhe: Array<DetalheResponse> = new Array<DetalheResponse>();
-  nomePesquisa: string;
-  codigoEstoque: number
+  codigoEstoque: number;
 
   constructor(private service: SearchAllService) { }
 
   ngOnInit() {
   }
 
-  BuscaProdutos() {
+  BuscaProdutos(nomePesquisa: string) {
     this.listObject = new Array();
-    this.service.BuscaNome(this.nomePesquisa).subscribe((response: any) => {
+    this.service.BuscaNome(nomePesquisa).subscribe((response: any) => {
       this.listObject = response;
       this.BuscaDetalhe();
     });
@@ -40,9 +39,9 @@ export class MenuComponent implements OnInit {
   BuscaDetalhe() {
     const responseDetalhe: DetalhePost = new DetalhePost();
     this.listObject.map(item => {
-      let itens: Itens = new Itens();
-      itens.codigo = item.codigoItem
-      responseDetalhe.itens.push(itens)
+      const itens: Itens = new Itens();
+      itens.codigo = item.codigoItem;
+      responseDetalhe.itens.push(itens);
     });
     this.service.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {
       this.responseDetalhe = response.itens;
@@ -52,22 +51,24 @@ export class MenuComponent implements OnInit {
   }
 
   BuscaEstoque() {
-    var parametros = new HttpParams();
+    let parametros = new HttpParams();
+// tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.responseDetalhe.length; i++) {
       parametros = parametros.append('itens', this.responseDetalhe[i].codigo.toString());
     }
-    const options = { params: parametros }
+    const options = { params: parametros };
     this.service.BuscaEstoque(options).subscribe((response: any) => {
       this.estoqueObject = response;
     });
   }
 
   BuscaPreco() {
-    var parametros = new HttpParams();
+    let parametros = new HttpParams();
+// tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.responseDetalhe.length; i++) {
       parametros = parametros.append('item', this.responseDetalhe[i].codigo.toString());
     }
-    const options = { params: parametros }
+    const options = { params: parametros };
     this.service.BuscaPreco(options).subscribe((response: any) => {
       this.precoObject = response;
       this.AtualizandoLista();
@@ -77,9 +78,9 @@ export class MenuComponent implements OnInit {
   AtualizandoLista() {
     this.responseDetalhe.forEach((item) => {
       const estoqueFiltrado = this.estoqueObject.find((filtroEstoque) =>
-        filtroEstoque.codigoItem == item.codigo);
+        filtroEstoque.codigoItem === item.codigo);
       const precoFiltrado = this.precoObject.find((filtroPreco) =>
-        filtroPreco.codigoItem == item.codigo);
+        filtroPreco.codigoItem === item.codigo);
       item.estoque = estoqueFiltrado.estoqueLoja;
       item.preco = precoFiltrado.preco;
     });

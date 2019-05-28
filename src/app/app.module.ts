@@ -24,7 +24,7 @@ import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     Interceptor,
-    NgbModule.forRoot()
+    NgbModule
   ],
   providers: [NgbActiveModal],
   bootstrap: [AppComponent],

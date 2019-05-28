@@ -1,8 +1,8 @@
 export class Constantes {
-    public static autocomplete_url_api = 'autocomplete_url';
-    public static detalhe_url_api = 'detalhe_url';
-    public static consulta_preco_url_api = 'consulta_preco_url';
-    public static estoque_url_api = 'estoque_url';
+    public static AUTOCOMPLETE_URL_API = 'autocomplete_url';
+    public static DETALHE_URL_API = 'detalhe_url';
+    public static CONSULTA_PRECO_API = 'consulta_preco_url';
+    public static ESTOQUE_URL_API = 'estoque_url';
 }
 
 

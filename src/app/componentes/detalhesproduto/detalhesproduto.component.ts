@@ -15,6 +15,6 @@ export class DetalhesprodutoComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
-    }
+  }
 
 }

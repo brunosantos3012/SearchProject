@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
 }
-.form-inline{
+.container_inline{
     width: 50%;
 }
 #container_input{

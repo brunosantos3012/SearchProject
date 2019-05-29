@@ -38,9 +38,13 @@ export class MenuComponent implements OnInit {
 
   BuscaDetalhe() {
     const responseDetalhe: DetalhePost = new DetalhePost();
+    responseDetalhe.itens = new Array<Itens>();
     this.listObject.map(item => {
+      responseDetalhe.filial = '101';
+      responseDetalhe.perfil = 1;
       const itens: Itens = new Itens();
       itens.codigo = item.codigoItem;
+      itens.quantidade = 10;
       responseDetalhe.itens.push(itens);
     });
     this.service.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {

@@ -15,10 +15,7 @@ describe('MenuComponent', () => {
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
-      providers: [ HttpClient, HttpHandler ],
-      imports: [
-        MenuModule
-      ]
+      providers: [ HttpClient, HttpHandler ]
     })
     .compileComponents();
   }));
@@ -32,4 +29,9 @@ describe('MenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('verificação do input válido', () => {
+  //   expect()
+  // })
+
 });

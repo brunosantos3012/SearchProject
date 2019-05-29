@@ -2,5 +2,6 @@
     "autocomplete_url": "http://api-int.grupodimedservices.com.br/tst/item/v3/itens/base/autocomplete?nome=",
     "detalhe_url": "http://api-int.grupodimedservices.com.br/tst/mostruario/v3/itens/detalhe",
     "consulta_preco_url": "http://api-int.grupodimedservices.com.br/tst/mostruario/v3/itens/precos?&filial=101&perfil=1",
-    "estoque_url": "http://api-int.grupodimedservices.com.br/tst/filial/v1/filiais/101/estoque?"
+    "estoque_url": "http://api-int.grupodimedservices.com.br/tst/filial/v1/filiais/101/estoque?",
+    "token_api": "mCl6SnTQp6eT"
 }

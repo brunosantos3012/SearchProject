@@ -1,0 +1,21 @@
+#menu{
+    display: flex;
+    justify-content: center;
+}
+.form-inline{
+    width: 50%;
+}
+#container_input{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#container_input input{
+    width: 89%;
+    margin: 0;
+}
+#container_input button{
+    margin: 0;
+    width: 10%;
+    min-width: 100px;
+}

@@ -1,9 +1,11 @@
 <nav id="menu" class="navbar navbar-light" style="background-color:	#003F84;">
   <form class="form-inline">
-    <input class="form-control mr-sm-2" type="text" placeholder="Buscar produtos" aria-label="Search"
-      (keyup.enter)="BuscaProdutos(nomePesquisa.value)" #nomePesquisa>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="BuscaProdutos(nomePesquisa.value)"
-      class="btn btn-primary">Pesquisar</button>
+    <div id="container_input">
+      <input class="form-control" type="text" placeholder="Buscar produtos" aria-label="Search"
+        (keyup.enter)="BuscaProdutos(nomePesquisa.value)" #nomePesquisa>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="BuscaProdutos(nomePesquisa.value)"
+        class="btn btn-primary">Pesquisar</button>
+    </div>
   </form>
 </nav>
 

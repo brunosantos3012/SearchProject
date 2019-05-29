@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MenuComponent } from './menu.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClient, HttpHandler } from '@angular/common/http';
+import { MenuModule } from 'src/app/modules/menu.module';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -14,7 +15,10 @@ describe('MenuComponent', () => {
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
-      providers: [ HttpClient, HttpHandler ]
+      providers: [ HttpClient, HttpHandler ],
+      imports: [
+        MenuModule
+      ]
     })
     .compileComponents();
   }));

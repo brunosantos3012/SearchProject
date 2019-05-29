@@ -8,7 +8,7 @@ import { DescricaoprodutoComponent } from './componentes/descricaoproduto/descri
 import { DetalhesprodutoComponent } from './componentes/detalhesproduto/detalhesproduto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { Interceptor } from './modules/interceptor.module';
+import { InterceptorModule } from './modules/interceptor.module';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -23,7 +23,7 @@ import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    Interceptor,
+    InterceptorModule,
     NgbModule
   ],
   providers: [NgbActiveModal],

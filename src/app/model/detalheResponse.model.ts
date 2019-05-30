@@ -8,7 +8,7 @@ export class DetalheResponse {
     public preco?: Precos;
     public descricaoPai: string;
     public ean: number;
-    public promocaoAssinatura: string;
+    public promocaoAssinatura: boolean;
     public nomenclatura: string;
     public nomenclaturaDetalhada: string;
     public principioAtivo: string;

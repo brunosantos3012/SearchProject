@@ -5,10 +5,10 @@ import { DetalheResponse } from 'src/app/model/detalheResponse.model';
 
 @Component({
   selector: 'app-detalhesproduto',
-  templateUrl: './detalhesproduto.component.html',
-  styleUrls: ['./detalhesproduto.component.css']
+  templateUrl: './detalhesProduto.component.html',
+  styleUrls: ['./detalhesProduto.component.css']
 })
-export class DetalhesprodutoComponent implements OnInit {
+export class DetalhesProdutoComponent implements OnInit {
 
   @Input() item: DetalheResponse;
 

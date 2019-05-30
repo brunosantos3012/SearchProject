@@ -56,7 +56,7 @@ export class MenuComponent implements OnInit {
 
   BuscaEstoque() {
     let parametros = new HttpParams();
-// tslint:disable-next-line: prefer-for-of
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.responseDetalhe.length; i++) {
       parametros = parametros.append('itens', this.responseDetalhe[i].codigo.toString());
     }
@@ -68,7 +68,7 @@ export class MenuComponent implements OnInit {
 
   BuscaPreco() {
     let parametros = new HttpParams();
-// tslint:disable-next-line: prefer-for-of
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.responseDetalhe.length; i++) {
       parametros = parametros.append('item', this.responseDetalhe[i].codigo.toString());
     }

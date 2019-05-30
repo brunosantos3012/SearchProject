@@ -1,16 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DetalhesprodutoComponent } from '../detalhesproduto/detalhesproduto.component';
+import { DetalhesProdutoComponent } from '../detalhesproduto/detalhesProduto.component';
 import { DetalheResponse } from 'src/app/model/detalheResponse.model';
 
 
 @Component({
   selector: 'app-descricaoproduto',
-  templateUrl: './descricaoproduto.component.html',
-  styleUrls: ['./descricaoproduto.component.css'],
+  templateUrl: './descricaoProduto.component.html',
+  styleUrls: ['./descricaoProduto.component.css'],
 })
-export class DescricaoprodutoComponent implements OnInit {
+export class DescricaoProdutoComponent implements OnInit {
 
   @Input() recebeResponseDetalhe;
 
@@ -20,7 +20,7 @@ export class DescricaoprodutoComponent implements OnInit {
   }
 
   OpenModal(item: DetalheResponse) {
-    const modalRef = this.modalService.open(DetalhesprodutoComponent);
+    let modalRef = this.modalService.open(DetalhesProdutoComponent);
     modalRef.componentInstance.item = item;
   }
 }

@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { MenuComponent } from '../componentes/menu/menu.component';
-import { DetalhesprodutoComponent } from '../componentes/detalhesproduto/detalhesproduto.component';
-import { DescricaoprodutoComponent } from '../componentes/descricaoproduto/descricaoproduto.component';
 import { SearchAllService } from '../services/searchAll/searchall.service';
 import { ParametersService } from '../services/parameters/parameters.service';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DetalhesProdutoComponent } from '../componentes/detalhesproduto/detalhesProduto.component';
+import { DescricaoProdutoComponent } from '../componentes/descricaoproduto/descricaoProduto.component';
 
 @NgModule({
     declarations: [
         MenuComponent,
-        DetalhesprodutoComponent,
-        DescricaoprodutoComponent
+        DetalhesProdutoComponent,
+        DescricaoProdutoComponent
     ],
     imports: [
         CommonModule,
@@ -21,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         SearchAllService,
         ParametersService
     ],
-    entryComponents: [ DetalhesprodutoComponent ]
+    entryComponents: [ DetalhesProdutoComponent ]
 })
 
-export class ItemModule {}
+export class ItemModule { }

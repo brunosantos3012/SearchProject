@@ -3,7 +3,7 @@ import { Builder } from 'builder-pattern';
 
 export class SearchAllServiceStub {
 
-    public getItem() { }
+    // public getItem() { }
 
     public static mockResponseBuscaNome(): DetalheResponse[] {
         return [

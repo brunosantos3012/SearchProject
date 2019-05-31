@@ -11,7 +11,7 @@ import { DetalhesProdutoComponentStub as stub } from '../detalhesproduto/detalhe
 describe('MenuComponent', () => {
   let component: MenuComponent;
   let fixture: ComponentFixture<MenuComponent>;
-  let service: SearchAllService;
+  // let service: SearchAllService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({

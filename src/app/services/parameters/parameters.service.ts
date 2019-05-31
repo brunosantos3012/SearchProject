@@ -8,7 +8,7 @@ export class ParametersService {
 
   constructor() { }
 
-  getValueByPropertiesJson(value: string): any {
+  getValueOfPropertiesJson(value: string): any {
     return properties[value];
   }
 }

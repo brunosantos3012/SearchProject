@@ -15,7 +15,7 @@ export class HttpsRequestInterceptor implements HttpInterceptor {
         next: HttpHandler,
     ): Observable<HttpEvent<any>> {
         const dupReq = request.clone({
-            headers: request.headers.set('app-token', `${this.parameter.getValueByPropertiesJson(Constantes.TOKEN_API)}`),
+            headers: request.headers.set('app-token', `${this.parameter.getValueOfPropertiesJson(Constantes.TOKEN_API)}`),
         });
         return next.handle(dupReq);
     }

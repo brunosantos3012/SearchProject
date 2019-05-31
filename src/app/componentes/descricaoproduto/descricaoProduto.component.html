@@ -15,7 +15,7 @@
         <td>{{item.codigo}}</td>
         <td>{{item.nomenclatura}}</td>
         <td>{{item.estoque}}</td>
-        <td>{{item.preco?.precoFidelidade55Mais}} | {{item.preco?.precoPor}} | {{item.preco?.precoVenda}}</td>
+        <td>55Mais: R${{item.preco?.precoFidelidade55Mais}} | Venda: R${{item.preco?.precoVenda}}</td>
         <td>{{item.descricaoMarcaPai}}</td>
         <td>{{item.ean}}</td>
       </tr>

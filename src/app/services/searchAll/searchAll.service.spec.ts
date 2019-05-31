@@ -1,32 +1,27 @@
 import { TestBed } from '@angular/core/testing';
 import { SearchAllService } from './searchall.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
-import { DetalhesProdutoComponentStub as stub } from '../../componentes/detalhesproduto/detalhesProduto.component.stub';
+import { DetalhesProdutoComponentStub as stub } from '../../componentes/mock/detalhesProduto.component.stub';
+import { of } from 'rxjs';
 
 describe('SearchAllService', () => {
 
-  let serviceAll: SearchAllService;
+    let service: SearchAllService;
 
-  beforeEach(() => {
-    const testBed = TestBed.configureTestingModule({
-      providers: [SearchAllService, HttpClient, HttpHandler]
+    beforeEach(() => {
+        const testBed = TestBed.configureTestingModule({
+            providers: [HttpClient, HttpHandler, { provide: SearchAllService, useClass: stub }]
+        });
+        service = testBed.get(SearchAllService);
     });
 
-    serviceAll = testBed.get(SearchAllService);
-
-    describe('quando o request BuscaNome for chamado', () => {
-      beforeEach(() => {
-        spyOn(serviceAll, 'BuscaNome').and.callFake(() => { });
-        expect(serviceAll.BuscaNome).toHaveBeenCalledWith(stub.mockDetalhes);
-      });
-      it('devera ser criado a service', () => {
-        const service: SearchAllService = TestBed.get(SearchAllService);
-        expect(service).toBeTruthy();
-      });
-
-      it('resposta do request BuscaNome', () => {
-        spyOn(serviceAll, 'BuscaNome').and.callFake(() => { });
-      });
+    describe('Quando o metodo HTTP [FindByName] for chamado', () => {
+        beforeEach(() => {
+            spyOn(service, 'FindByName').and.returnValue(of('parace'));
+            service.FindByName('parace');
+        });
+        it('Então [FindByName] deve ser chamado', () => {
+            expect(service.FindByName).toHaveBeenCalled();
+        });
     });
-  });
 });

@@ -30,7 +30,7 @@ export class MenuComponent implements OnInit {
 
   BuscaProdutos(nomePesquisa: string) {
     this.listObject = new Array();
-    this.service.BuscaNome(nomePesquisa).subscribe((response: any) => {
+    this.service.FindByName(nomePesquisa).subscribe((response: any) => {
       this.listObject = response;
       this.BuscaDetalhe();
     });
@@ -47,7 +47,7 @@ export class MenuComponent implements OnInit {
       itens.quantidade = 10;
       responseDetalhe.itens.push(itens);
     });
-    this.service.BuscaDetalhe(responseDetalhe).subscribe((response: any) => {
+    this.service.FindByDetail(responseDetalhe).subscribe((response: any) => {
       this.responseDetalhe = response.itens;
       this.BuscaEstoque();
       this.BuscaPreco();
@@ -61,7 +61,7 @@ export class MenuComponent implements OnInit {
       parametros = parametros.append('itens', this.responseDetalhe[i].codigo.toString());
     }
     const options = { params: parametros };
-    this.service.BuscaEstoque(options).subscribe((response: any) => {
+    this.service.FindByStock(options).subscribe((response: any) => {
       this.estoqueObject = response;
     });
   }
@@ -73,7 +73,7 @@ export class MenuComponent implements OnInit {
       parametros = parametros.append('item', this.responseDetalhe[i].codigo.toString());
     }
     const options = { params: parametros };
-    this.service.BuscaPreco(options).subscribe((response: any) => {
+    this.service.FindByPrice(options).subscribe((response: any) => {
       this.precoObject = response;
       this.AtualizandoLista();
     });

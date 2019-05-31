@@ -4,7 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ItemModule } from 'src/app/modules/item.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { DescricaoProdutoComponent } from './descricaoProduto.component';
-import { DetalhesProdutoComponentStub as stub } from '../detalhesproduto/detalhesProduto.component.stub';
+import { DetalhesProdutoComponentStub as stub } from '../mock/detalhesProduto.component.stub';
 
 describe('DescricaoprodutoComponent', () => {
   let component: DescricaoProdutoComponent;

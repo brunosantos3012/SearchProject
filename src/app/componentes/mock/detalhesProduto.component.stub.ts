@@ -8,7 +8,7 @@ export class DetalhesProdutoComponentStub {
 
     public static mockDetalhes(): DetalheResponse {
         return Builder<DetalheResponse>()
-            .codigo(119196)
+            .codigo(11)
             .estoque(1)
             .descricaoPai('testeeeeeee')
             .ean(7896714261515)
@@ -23,7 +23,7 @@ export class DetalhesProdutoComponentStub {
 
     public static mockDetalhesArray(): DetalheResponse[] {
         return [Builder<DetalheResponse>()
-            .codigo(119196)
+            .codigo(11)
             .estoque(1)
             .descricaoPai('testeeeeeee')
             .ean(7896714261515)
@@ -39,7 +39,7 @@ export class DetalhesProdutoComponentStub {
 
     public static mockBuscaItemArray(): BuscaItem[] {
         return [Builder<BuscaItem>()
-            .codigoItem(null)
+            .codigoItem(11)
             .nomenclaturaVarejo(null)
             .nomeDetalhado(null)
             .possuiItemAVencer(null)
@@ -55,23 +55,31 @@ export class DetalhesProdutoComponentStub {
 
     public static mockEstoqueArray(): Estoque[] {
         return [Builder<Estoque>()
-            .estoqueLoja(null)
+            .estoqueLoja(111)
             .estoqueApoio(null)
             .reservaVirtual(null)
             .estoqueCd(null)
             .estoqueCdApoio(null)
             .filial(null)
-            .codigoItem(null)
+            .codigoItem(11)
             .build()
         ];
     }
 
     public static mockPrecoArray(): Preco[] {
         return [Builder<Preco>()
-            .codigoItem(null)
+            .codigoItem(11)
             .preco(null)
             .build()
         ];
+    }
+
+    public static mockInstanciaModal(): any {
+        return {
+            componentInstance: {
+                item: ''
+            }
+          };
     }
 
     public BuscaProdutos() { }
@@ -85,7 +93,6 @@ export class DetalhesProdutoComponentStub {
     public FindByPrice() { }
     public OpenModal() { }
 
-
-
+    public open() { }
 
 }

@@ -20,7 +20,7 @@ export class DescricaoProdutoComponent implements OnInit {
   }
 
   OpenModal(item: DetalheResponse) {
-    let modalRef = this.modalService.open(DetalhesProdutoComponent);
+    const modalRef = this.modalService.open(DetalhesProdutoComponent);
     modalRef.componentInstance.item = item;
   }
 }

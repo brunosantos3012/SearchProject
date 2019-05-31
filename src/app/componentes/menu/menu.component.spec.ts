@@ -59,8 +59,6 @@ describe('MenuComponent', () => {
       component.listObject = stub.mockBuscaItemArray();
       component.BuscaDetalhe();
     });
-    it('Então o map deve ser executado', () => {
-    });
     it('Então [BuscaEstoque] deve ser chamado', () => {
       expect(component.BuscaEstoque).toHaveBeenCalled();
     });
@@ -72,10 +70,11 @@ describe('MenuComponent', () => {
   describe('Quando o metodo [BuscaEstoque] for chamado', () => {
     beforeEach(() => {
       spyOn(service, 'FindByStock').and.returnValue(of(stub.mockEstoqueArray()));
+      component.responseDetalhe = stub.mockDetalhesArray();
       component.BuscaEstoque();
     });
     it('Então o for deve ser executado', () => {
-
+      expect(component.BuscaEstoque).toBeDefined();
     });
   });
 
@@ -83,13 +82,26 @@ describe('MenuComponent', () => {
     beforeEach(() => {
       spyOn(service, 'FindByPrice').and.returnValue(of(stub.mockPrecoArray()));
       spyOn(component, 'AtualizandoLista');
+      component.responseDetalhe = stub.mockDetalhesArray();
       component.BuscaPreco();
     });
     it('Então o for deve ser executado', () => {
-
+      expect(component.responseDetalhe).toBeDefined();
     });
     it('Então o [AtualizandoLista] deve ser chamado', () => {
       expect(component.AtualizandoLista).toHaveBeenCalled();
+    });
+  });
+
+  describe('Quando o metodo [AtualizandoLista] for chamado', () => {
+    beforeEach(() => {
+      component.responseDetalhe = stub.mockDetalhesArray();
+      component.estoqueObject = stub.mockEstoqueArray();
+      component.precoObject = stub.mockPrecoArray();
+      component.AtualizandoLista();
+    });
+    it('Então o ForEach deve ser executado', () => {
+      expect(component.responseDetalhe).toBeDefined();
     });
   });
 

@@ -86,6 +86,9 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
+            ],
+            "codeCoverageExclude": [
+              "/src/app/componentes/mock/detalhesProduto.component.stub.ts"
             ]
           }
         },

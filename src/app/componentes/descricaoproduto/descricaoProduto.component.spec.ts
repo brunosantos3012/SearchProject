@@ -1,12 +1,10 @@
-import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ItemModule } from 'src/app/modules/item.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { DescricaoProdutoComponent } from './descricaoProduto.component';
 import { DetalhesProdutoComponentStub as stub } from '../mock/detalhesProduto.component.stub';
-import { of } from 'rxjs';
-import { DetalhesProdutoComponent } from '../detalhesproduto/detalhesProduto.component';
 
 describe('DescricaoprodutoComponent', () => {
   let component: DescricaoProdutoComponent;
@@ -15,7 +13,7 @@ describe('DescricaoprodutoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [ {provide: NgbModal, useClass: stub} ],
+      providers: [{ provide: NgbModal, useClass: stub }],
       imports: [ItemModule, AppRoutingModule]
     }).compileComponents()
       .then(() => {
@@ -33,20 +31,6 @@ describe('DescricaoprodutoComponent', () => {
   it('devera abrir modal', () => {
     expect(component).toBeTruthy();
   });
-
-  // describe('Quando executar modal', () => {
-  //   beforeEach(() => {
-  //     component.OpenModal(stub.mockDetalhes());
-  //   });
-  //   it('devera abrir modal', () => {
-  //     expect(component).toBeTruthy();
-  //   });
-
-  //   it('verificando a abertura da modal', () => {
-  //     spyOn(modalService, 'open');
-  //     expect(modalService.open).toHaveBeenCalled();
-  //   });
-  // });
 
   describe('Quando executar a abertura da modal', () => {
     beforeEach(() => {

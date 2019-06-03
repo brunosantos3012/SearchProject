@@ -10,7 +10,7 @@ import { DetalheResponse } from 'src/app/model/detalheResponse.model';
 })
 export class DetalhesProdutoComponent implements OnInit {
 
-  @Input() item: DetalheResponse;
+  @Input() item;
 
   constructor(public activeModal: NgbActiveModal) { }
 

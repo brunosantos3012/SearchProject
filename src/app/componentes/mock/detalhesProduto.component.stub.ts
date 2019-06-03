@@ -3,6 +3,10 @@ import { DetalheResponse } from 'src/app/model/detalheResponse.model';
 import { BuscaItem } from 'src/app/model/buscaItem.model';
 import { Estoque } from 'src/app/model/estoque.model';
 import { Preco } from 'src/app/model/preco.model';
+import { DetalhePost } from 'src/app/model/detalhePost.model';
+import { ConsultaRegrasFiscais } from 'src/app/model/consultaRegrasFiscais.model';
+import { Itens } from 'src/app/model/itens.model';
+import { HttpParams } from '@angular/common/http';
 
 export class DetalhesProdutoComponentStub {
 
@@ -79,7 +83,49 @@ export class DetalhesProdutoComponentStub {
             componentInstance: {
                 item: ''
             }
-          };
+        };
+    }
+
+    public static mockDetalhePost(): DetalhePost {
+        return Builder<DetalhePost>()
+            .codigo(11)
+            .filial('101')
+            .perfil(1)
+            .itens(this.mockItensArray())
+            .consultaRegrasFiscais(this.mockConsultaRegrasFiscais())
+            .build()
+    }
+
+    public static mockConsultaRegrasFiscais(): ConsultaRegrasFiscais {
+        return Builder<ConsultaRegrasFiscais>()
+            .uf('RS')
+            .pais('BR')
+            .ufDestino('RS')
+            .paisDestino('BR')
+            .build()
+    }
+
+    public static mockItensArray(): Itens[] {
+        return [
+            Builder<Itens>()
+                .codigo(11)
+                .quantidade(10)
+                .build()
+        ]
+    }
+
+    public static mockHttpParamsEstoque(): any {
+        let parametros = new HttpParams();
+        parametros = parametros.append('itens', '101010');
+        const options = { params: parametros };
+        return options;
+    }
+
+    public static mockHttpParamsPreco(): any {
+        let parametros = new HttpParams();
+        parametros = parametros.append('item', '101010');
+        const options = { params: parametros };
+        return options;
     }
 
     public BuscaProdutos() { }
